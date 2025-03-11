@@ -3,7 +3,11 @@ import JobLists from "@/components/JobLists";
 import { getLocations, getJobs } from "@/actions/actions";
 
 type HomeProps = {
-  searchParams: { title?: string; location?: string; isFullTime?: string };
+  searchParams: Promise<{
+    title?: string;
+    location?: string;
+    isFullTime?: string;
+  }>;
 };
 
 export default async function Home({ searchParams }: HomeProps) {
