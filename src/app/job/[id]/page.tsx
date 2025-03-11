@@ -28,7 +28,11 @@ type Job = {
   role: JobRole;
 };
 
-export default async function JobPage({ params }: { params: { id: string } }) {
+export default async function JobPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
   const idParams = await params;
   const job = (await getJobById(idParams.id)) as Job | null;
 
